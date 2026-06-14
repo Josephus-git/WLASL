@@ -41,7 +41,7 @@ def run(split_file, pose_data_root, configs, save_model_to=None):
                                                      enumerate(train_dataset.label_encoder.classes_)]))
 
     # setup the model
-    model = GCN_muti_att(input_feature=num_samples*2, hidden_feature=num_samples*2,
+    model = GCN_muti_att(input_feature=num_samples*2, hidden_feature=hidden_size,
                          num_class=len(train_dataset.label_encoder.classes_), p_dropout=drop_p, num_stage=num_stages).cuda()
 
     # setup training parameters, learning rate, optimizer, scheduler
@@ -108,7 +108,7 @@ def run(split_file, pose_data_root, configs, save_model_to=None):
 
 
 if __name__ == "__main__":
-    root = '/media/anudisk/github/WLASL'
+    root = '/home/josephus/DEV ACTUAL/WLASL'
 
     subset = 'asl100'
 
